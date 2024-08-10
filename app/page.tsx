@@ -1,10 +1,6 @@
-"use client";
-import { Button } from "semantic-ui-react";
+import TopSlider from "./_components/home/TopSlider";
+import { products } from "./_mock";
 
 export default function Home() {
-  return (
-    <div className="App">
-      <Button>Click!</Button>
-    </div>
-  );
+  return <TopSlider products={products} />;
 }
