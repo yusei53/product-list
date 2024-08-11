@@ -1,6 +1,11 @@
+"use client";
 import TopSlider from "./_components/home/TopSlider";
+import { useClient } from "./_hooks/useClient";
 import { products } from "./_mock";
 
-export default function Home() {
-  return <TopSlider products={products} />;
-}
+const Home = () => {
+  const isClient = useClient();
+  return isClient && <TopSlider products={products} />;
+};
+
+export default Home;
