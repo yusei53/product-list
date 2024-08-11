@@ -1,10 +1,11 @@
 "use client";
-import { Button } from "semantic-ui-react";
+import TopSlider from "./_components/home/slider/TopSlider";
+import { useClient } from "./_hooks/useClient";
+import { products } from "./_mock";
 
-export default function Home() {
-  return (
-    <div className="App">
-      <Button>Click!</Button>
-    </div>
-  );
-}
+const Home = () => {
+  const isClient = useClient();
+  return isClient && <TopSlider products={products} />;
+};
+
+export default Home;
