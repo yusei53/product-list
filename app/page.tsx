@@ -1,7 +1,8 @@
 "use client";
-import TopSlider from "./_components/home/slider/TopSlider";
-import { useClient } from "./_hooks/useClient";
-import { products } from "./_mock";
+
+import TopSlider from "@components/home/slider/TopSlider";
+import { useClient } from "@hooks";
+import { products } from "@mock";
 
 const Home = () => {
   const isClient = useClient();

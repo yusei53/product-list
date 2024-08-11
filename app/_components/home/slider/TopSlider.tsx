@@ -1,6 +1,6 @@
 import CustomSwiper from "./CustomSwiper";
 import { SwiperSlide } from "swiper/react";
-import { Product } from "@/app/_types";
+import { Product } from "@types";
 import Image from "next/image";
 import { createUseStyles } from "react-jss";
 
