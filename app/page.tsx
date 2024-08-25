@@ -1,9 +1,9 @@
 "use client";
-import TopSlider from "@components/home/slider/TopSlider";
+import TopSlider from "@components/slider/TopSlider";
 import { useClient } from "@hooks";
 import { products } from "@mock";
 import { useGlobalStyles } from "./_theme/theme";
-import ProductCardList from "@components/home/products/ProductCardList";
+import ProductCardList from "@components/products/ProductCardList";
 
 const Home = () => {
   useGlobalStyles();
