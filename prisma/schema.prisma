@@ -18,8 +18,8 @@ model Product {
   title       String
   subtitle    String
   description String
+  skills      String[]
   department  String
   developer   String
   image       String
-  createdAt   DateTime @default(now())
 }
