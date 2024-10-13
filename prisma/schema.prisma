@@ -15,8 +15,10 @@ datasource db {
 
 model Product {
   productCUID String   @id @default(cuid()) @db.VarChar(30)
-  name        String
+  title       String
+  subtitle    String
   description String
+  department  String
   developer   String
   image       String
   createdAt   DateTime @default(now())
