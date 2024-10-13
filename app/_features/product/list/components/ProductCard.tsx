@@ -1,8 +1,8 @@
-import { Product } from "@types";
 import Image from "next/image";
 import { createUseStyles } from "react-jss";
+import { Product } from "../endpoint";
 
-type TProps = Omit<Product, "id">;
+type TProps = Omit<Product, "productCUID">;
 
 const useStyles = createUseStyles({
   card: {
