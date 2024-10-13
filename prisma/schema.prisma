@@ -14,7 +14,7 @@ datasource db {
 }
 
 model Product {
-  id          String   @id @default(cuid()) @db.VarChar(30)
+  productCUID String   @id @default(cuid()) @db.VarChar(30)
   name        String
   description String
   developer   String
