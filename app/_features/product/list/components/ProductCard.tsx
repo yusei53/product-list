@@ -2,16 +2,33 @@ import Image from "next/image";
 import { createUseStyles } from "react-jss";
 import { Product } from "../endpoint";
 
-type TProps = Omit<Product, "productCUID">;
+type TProps = Omit<Product, "productCUID" | "description">;
 
 const useStyles = createUseStyles({
   card: {
     maxWidth: "400px",
+    "@media (max-width: 1200px)": {
+      maxWidth: "350px",
+    },
+    "@media (max-width: 600px)": {
+      maxWidth: "320px",
+    },
   },
   image: {
     borderRadius: "10px",
+    "@media (max-width: 1200px)": {
+      width: "350px",
+      height: "210px",
+    },
+    "@media (max-width: 600px)": {
+      width: "320px",
+      height: "180px",
+    },
   },
-  developer: {
+  content: {
+    marginLeft: "4px",
+  },
+  subtitle: {
     fontSize: "12px",
     marginTop: "2px",
     marginBottom: "4px",
@@ -19,29 +36,34 @@ const useStyles = createUseStyles({
 });
 
 const ProductCard: React.FC<TProps> = ({
-  name,
-  description,
-  developer,
   image,
+  title,
+  subtitle,
+  department,
+  developer,
+  skills,
 }) => {
   const classes = useStyles();
 
   return (
-    <div className={classes.card}>
+    <article className={classes.card}>
       <Image
         src={image}
         alt={`画像`}
-        height={240}
         width={400}
+        height={240}
         priority
         className={classes.image}
       />
-      <div>
-        <h3>{name}</h3>
-        <p className={classes.developer}>{developer}</p>
-        <p>{description}</p>
+      <div className={classes.content}>
+        <h3>{title}</h3>
+        <p className={classes.subtitle}>{subtitle}</p>
+        <p>
+          {department} {developer}
+        </p>
+        <p>{skills.join(", ")}</p>
       </div>
-    </div>
+    </article>
   );
 };
 

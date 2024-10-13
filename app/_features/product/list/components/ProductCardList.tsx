@@ -1,13 +1,15 @@
 import { Grid } from "semantic-ui-react";
 import ProductCard from "./ProductCard";
 import { createUseStyles } from "react-jss";
-import React from "react";
 import { Product } from "../endpoint";
 
 const useStyles = createUseStyles({
   container: {
-    marginBlock: "72px !important",
-    marginInline: "120px !important",
+    marginBlock: "56px !important",
+    marginInline: "160px !important",
+    "@media (max-width: 1200px)": {
+      margin: "32px !important",
+    },
   },
   column: {
     display: "flex !important",
@@ -27,16 +29,16 @@ const ProductCardList: React.FC<TProps> = ({ productList }) => {
     <Grid columns={2} stackable className={classes.container}>
       <Grid.Row>
         {productList.map((product) => (
-          <React.Fragment key={product.productCUID}>
-            <Grid.Column className={classes.column}>
-              <ProductCard
-                image={product.image}
-                name={product.name}
-                description={product.description}
-                developer={product.developer}
-              />
-            </Grid.Column>
-          </React.Fragment>
+          <Grid.Column key={product.productCUID} className={classes.column}>
+            <ProductCard
+              image={product.image}
+              title={product.title}
+              subtitle={product.subtitle}
+              department={product.department}
+              developer={product.developer}
+              skills={product.skills}
+            />
+          </Grid.Column>
         ))}
       </Grid.Row>
     </Grid>

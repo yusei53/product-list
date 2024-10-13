@@ -10,8 +10,6 @@ type TProps = {
 const CustomSwiper: React.FC<TProps> = ({ children }) => {
   return (
     <Swiper
-      slidesPerView={1.5}
-      spaceBetween={-50}
       centeredSlides={true}
       loop={true}
       autoplay={{
@@ -23,6 +21,15 @@ const CustomSwiper: React.FC<TProps> = ({ children }) => {
       }}
       navigation={true}
       modules={[Autoplay, Pagination, Navigation]}
+      breakpoints={{
+        0: {
+          slidesPerView: 1.2,
+        },
+        600: {
+          slidesPerView: 1.5,
+          spaceBetween: -150,
+        },
+      }}
     >
       {children}
     </Swiper>
