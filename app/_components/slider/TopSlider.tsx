@@ -1,8 +1,8 @@
-import CustomSwiper from "./CustomSwiper";
 import { SwiperSlide } from "swiper/react";
-import { Product } from "@types";
 import Image from "next/image";
 import { createUseStyles } from "react-jss";
+import { Product } from "app/_features/product/list/endpoint";
+import CustomSwiper from "./CustomSwiper";
 
 type TProps = {
   products: Product[];
@@ -18,8 +18,11 @@ const useStyles = createUseStyles({
     alignItems: "center",
   },
   image: {
-    width: "75%",
+    width: "70%",
     height: "auto",
+    "@media (max-width: 600px)": {
+      width: "90%",
+    },
   },
 });
 
@@ -30,10 +33,10 @@ const TopSlider: React.FC<TProps> = ({ products }) => {
     <div className={classes.container}>
       <CustomSwiper>
         {products.map((product) => (
-          <SwiperSlide key={product.id} className={classes.imageField}>
+          <SwiperSlide key={product.productCUID} className={classes.imageField}>
             <Image
               src={product.image}
-              alt={`${product.name}の画像`}
+              alt={`${product.title}の画像`}
               // styleで当ててるせいか、widthとheightの大きさが画質に影響を与える
               height="1000"
               width="1000"
