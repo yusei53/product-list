@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { createUseStyles } from "react-jss";
-import { Product } from "../endpoint";
+import { Product } from "../../detail/endpoint";
 
 type TProps = Omit<Product, "description">;
 
@@ -58,7 +58,7 @@ const ProductCard: React.FC<TProps> = ({
           className={classes.image}
         />
       </Link>
-      <section className={classes.content}>
+      <div className={classes.content}>
         <h3>
           <Link href={`/product/${productCUID}`} className={classes.link}>
             {title}
@@ -69,7 +69,7 @@ const ProductCard: React.FC<TProps> = ({
           {department} {developer}
         </p>
         <p>{skills.join(", ")}</p>
-      </section>
+      </div>
     </article>
   );
 };
