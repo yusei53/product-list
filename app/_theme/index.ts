@@ -1,1 +1,1 @@
-export { useGlobalStyles } from "./theme";
+export { useRouteStyles, useDetailStyles } from "./theme";
