@@ -31,6 +31,7 @@ const ProductCardList: React.FC<TProps> = ({ productList }) => {
         {productList.map((product) => (
           <Grid.Column key={product.productCUID} className={classes.column}>
             <ProductCard
+              productCUID={product.productCUID}
               image={product.image}
               title={product.title}
               subtitle={product.subtitle}

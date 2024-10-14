@@ -1,41 +1,42 @@
 import Image from "next/image";
+import Link from "next/link";
 import { createUseStyles } from "react-jss";
 import { Product } from "../endpoint";
 
-type TProps = Omit<Product, "productCUID" | "description">;
+type TProps = Omit<Product, "description">;
 
 const useStyles = createUseStyles({
   card: {
-    maxWidth: "400px",
-    "@media (max-width: 1200px)": {
-      maxWidth: "350px",
-    },
+    maxWidth: "380px",
     "@media (max-width: 600px)": {
       maxWidth: "320px",
     },
   },
   image: {
     borderRadius: "10px",
-    "@media (max-width: 1200px)": {
-      width: "350px",
-      height: "210px",
-    },
     "@media (max-width: 600px)": {
       width: "320px",
       height: "180px",
     },
   },
+  link: {
+    color: "black",
+    "&:hover": {
+      color: "black",
+      textDecoration: "underline",
+    },
+  },
   content: {
-    marginLeft: "4px",
+    marginLeft: "3px",
   },
   subtitle: {
-    fontSize: "12px",
     marginTop: "2px",
     marginBottom: "4px",
   },
 });
 
 const ProductCard: React.FC<TProps> = ({
+  productCUID,
   image,
   title,
   subtitle,
@@ -47,22 +48,28 @@ const ProductCard: React.FC<TProps> = ({
 
   return (
     <article className={classes.card}>
-      <Image
-        src={image}
-        alt={`画像`}
-        width={400}
-        height={240}
-        priority
-        className={classes.image}
-      />
-      <div className={classes.content}>
-        <h3>{title}</h3>
+      <Link href={`/product/${productCUID}`}>
+        <Image
+          src={image}
+          alt={`画像`}
+          width={380}
+          height={220}
+          priority
+          className={classes.image}
+        />
+      </Link>
+      <section className={classes.content}>
+        <h3>
+          <Link href={`/product/${productCUID}`} className={classes.link}>
+            {title}
+          </Link>
+        </h3>
         <p className={classes.subtitle}>{subtitle}</p>
         <p>
           {department} {developer}
         </p>
         <p>{skills.join(", ")}</p>
-      </div>
+      </section>
     </article>
   );
 };
