@@ -1,7 +1,6 @@
 "use client";
 import { useClient } from "app/_utils";
 import { useRouteStyles } from "./_theme";
-import TopSlider from "@components/slider/TopSlider";
 import ProductCardList from "./_features/product/list/components/ProductCardList";
 // import { products } from "@mock";
 import { useProductList } from "./_features/product/list/hooks";
