@@ -18,14 +18,6 @@ const useStyles = createUseStyles({
       height: "180px",
     },
   },
-  content: {
-    maxWidth: "580px",
-    "@media (max-width: 600px)": {
-      maxWidth: "320px",
-    },
-    lineHeight: "1.6",
-    wordWrap: "break-word",
-  },
 });
 
 const Page = () => {
