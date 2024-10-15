@@ -1,14 +1,13 @@
 "use client";
-
-import { useClient } from "@hooks";
-import { useGlobalStyles } from "./_theme/theme";
+import { useClient } from "app/_utils";
+import { useRouteStyles } from "./_theme";
 import TopSlider from "@components/slider/TopSlider";
 import ProductCardList from "./_features/product/list/components/ProductCardList";
-import { products } from "@mock";
+// import { products } from "@mock";
 import { useProductList } from "./_features/product/list/hooks";
 
 const Home = () => {
-  useGlobalStyles();
+  useRouteStyles();
   const isClient = useClient();
   const { data: productList, isLoading } = useProductList();
   if (!productList) return undefined;
@@ -18,7 +17,7 @@ const Home = () => {
   return (
     isClient && (
       <>
-        <TopSlider products={products} />
+        {/* <TopSlider products={products} /> */}
         <ProductCardList productList={productList} />
       </>
     )

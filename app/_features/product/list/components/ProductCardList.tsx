@@ -1,7 +1,7 @@
 import { Grid } from "semantic-ui-react";
 import ProductCard from "./ProductCard";
 import { createUseStyles } from "react-jss";
-import { Product } from "../endpoint";
+import { Product } from "../../detail/endpoint";
 
 const useStyles = createUseStyles({
   container: {
@@ -26,22 +26,25 @@ type TProps = {
 const ProductCardList: React.FC<TProps> = ({ productList }) => {
   const classes = useStyles();
   return (
-    <Grid columns={2} stackable className={classes.container}>
-      <Grid.Row>
-        {productList.map((product) => (
-          <Grid.Column key={product.productCUID} className={classes.column}>
-            <ProductCard
-              image={product.image}
-              title={product.title}
-              subtitle={product.subtitle}
-              department={product.department}
-              developer={product.developer}
-              skills={product.skills}
-            />
-          </Grid.Column>
-        ))}
-      </Grid.Row>
-    </Grid>
+    <section>
+      <Grid columns={2} stackable className={classes.container}>
+        <Grid.Row>
+          {productList.map((product) => (
+            <Grid.Column key={product.productCUID} className={classes.column}>
+              <ProductCard
+                productCUID={product.productCUID}
+                image={product.image}
+                title={product.title}
+                subtitle={product.subtitle}
+                department={product.department}
+                developer={product.developer}
+                skills={product.skills}
+              />
+            </Grid.Column>
+          ))}
+        </Grid.Row>
+      </Grid>
+    </section>
   );
 };
 

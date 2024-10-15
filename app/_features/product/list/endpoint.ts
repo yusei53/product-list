@@ -1,15 +1,5 @@
 import axios from "axios";
-
-export type Product = {
-  productCUID: string;
-  title: string;
-  subtitle: string;
-  description: string;
-  skills: string[];
-  department: string;
-  developer: string;
-  image: string;
-};
+import { Product } from "../detail/endpoint";
 
 export type ProductList = {
   productList: Product[];

@@ -1,8 +1,8 @@
 import { SwiperSlide } from "swiper/react";
 import Image from "next/image";
 import { createUseStyles } from "react-jss";
-import { Product } from "app/_features/product/list/endpoint";
 import CustomSwiper from "./CustomSwiper";
+import { Product } from "app/_features/product/detail/endpoint";
 
 type TProps = {
   products: Product[];
