@@ -1,5 +1,6 @@
 "use client";
 import { supabase } from "app/_lib/supabase";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 const Page = () => {
@@ -13,6 +14,8 @@ const Page = () => {
   const [department, setDepartment] = useState("");
   const [developer, setDeveloper] = useState("");
   const [skills, setSkills] = useState(""); // 新しい状態変数
+
+  const router = useRouter();
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
@@ -48,7 +51,7 @@ const Page = () => {
 
         // 商品を作成
         await createProduct(urlData.publicUrl);
-        alert("アップロードと商品作成が成功しました");
+        router.push("/");
       }
     } catch (e: any) {
       console.error("アップロード中にエラーが発生しました:", e.message);
