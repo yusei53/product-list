@@ -1,4 +1,5 @@
 "use client";
+export const dynamic = "force-dynamic";
 import { useClient } from "app/_utils";
 import { useRouteStyles } from "./_theme";
 import ProductCardList from "./_features/product/list/components/ProductCardList";
