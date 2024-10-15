@@ -1,12 +1,19 @@
 "use client";
 import { useClient } from "app/_utils";
 import { useRouteStyles } from "./_theme";
-import TopSlider from "@components/slider/TopSlider";
 import ProductCardList from "./_features/product/list/components/ProductCardList";
 import { useProductList } from "./_features/product/list/hooks";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 const Home = () => {
+  const router = useRouter();
   useRouteStyles();
+
+  useEffect(() => {
+    router.refresh();
+  }, [router]);
+
   const isClient = useClient();
   const { data: productList, isLoading } = useProductList();
   if (!productList) return undefined;
