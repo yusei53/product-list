@@ -24,3 +24,17 @@ const TopPage: FC<TProps> = ({ productList }) => {
 };
 
 export default TopPage;
+
+// export const dynamic = "force-dynamic";
+
+// import getProductList from "./_actions/get-product-list";
+// import TopPage from "./page.client";
+
+// const page = async () => {
+//   const productList = await getProductList();
+//   if (!productList) return undefined;
+
+//   return <TopPage productList={productList} />;
+// };
+
+// export default page;
