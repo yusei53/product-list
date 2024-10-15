@@ -3,7 +3,7 @@ import { useClient } from "app/_utils";
 import { useRouteStyles } from "./_theme";
 import TopSlider from "@components/slider/TopSlider";
 import ProductCardList from "./_features/product/list/components/ProductCardList";
-import { products } from "@mock";
+// import { products } from "@mock";
 import { useProductList } from "./_features/product/list/hooks";
 
 const Home = () => {
@@ -17,7 +17,7 @@ const Home = () => {
   return (
     isClient && (
       <>
-        <TopSlider products={products} />
+        {/* <TopSlider products={products} /> */}
         <ProductCardList productList={productList} />
       </>
     )
