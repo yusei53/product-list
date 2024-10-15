@@ -1,4 +1,3 @@
-export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import "semantic-ui-css/semantic.min.css";
 import { ReactQueryProvider } from "./_provider";
