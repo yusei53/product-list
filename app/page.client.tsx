@@ -3,6 +3,7 @@ import { useClient } from "app/_utils";
 import { useRouteStyles } from "./_theme";
 import ProductCardList from "./_features/product/list/components/ProductCardList";
 import { useProductList } from "./_features/product/list/hooks";
+import TopSlider from "@components/slider/TopSlider";
 
 const TopPage = () => {
   useRouteStyles();
@@ -12,7 +13,7 @@ const TopPage = () => {
   return (
     isClient && (
       <>
-        {/* <TopSlider products={products} /> */}
+        <TopSlider />
         <ProductCardList productList={productList} />
       </>
     )

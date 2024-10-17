@@ -1,3 +1,26 @@
+export const sliderImages = [
+  {
+    id: 1,
+    image: "/test.jpg",
+  },
+  {
+    id: 2,
+    image: "/test.jpg",
+  },
+  {
+    id: 3,
+    image: "/test.jpg",
+  },
+  {
+    id: 4,
+    image: "/test.jpg",
+  },
+  {
+    id: 5,
+    image: "/test.jpg",
+  },
+];
+
 // import { Product } from "app/_features/product/list/endpoint";
 // export const products: Product[] = [
 //   {
