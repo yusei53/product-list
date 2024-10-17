@@ -1,8 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "app/_lib/prisma";
 
-export async function GET(req: NextRequest, productCUID: string) {
+// TODO: productCUIDをIDを除いたカラムたちをGETするようにしたい
+export async function GET(
+  req: NextRequest,
+  { params }: { params: { productCUID: string } }
+) {
   try {
+    const { productCUID } = params;
     const product = await prisma.product.findUnique({
       where: {
         productCUID,
