@@ -20,7 +20,8 @@ model Product {
   subtitle    String
   description String
   skills      String[]
-  department  String
-  developer   String
+  developer   String[]
+  developType String
+  productURL  String?
   image       String
 }
