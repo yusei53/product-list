@@ -1,19 +1,22 @@
 "use client";
+import { DevelopType } from "app/_features/product/detail/endpoint";
 import { supabase } from "app/_lib/supabase";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
+// TODO: めんどいけどここリファクタする
+// TODO: URLのinputを追加する
 const Page = () => {
   const [file, setFile] = useState<File | null>(null);
   const [uploading, setUploading] = useState(false);
 
-  // 状態変数をテーブル定義に合わせて修正
   const [title, setTitle] = useState("");
   const [subtitle, setSubtitle] = useState("");
   const [description, setDescription] = useState("");
   const [department, setDepartment] = useState("");
   const [developer, setDeveloper] = useState("");
-  const [skills, setSkills] = useState(""); // 新しい状態変数
+  const [skills, setSkills] = useState("");
+  const [developType, setDevelopType] = useState<DevelopType>("individual");
 
   const router = useRouter();
 
@@ -34,7 +37,6 @@ const Page = () => {
         return;
       }
 
-      // ファイル名のユニーク化（オプション）
       const uniqueFileName = `${Date.now()}_${file.name}`;
 
       const { data, error } = await supabase.storage
@@ -44,12 +46,10 @@ const Page = () => {
       if (error) {
         throw error;
       } else {
-        // 画像の公開URLを取得
         const { data: urlData } = supabase.storage
           .from("product-image-buckets")
           .getPublicUrl(`thumbnail/${uniqueFileName}`);
 
-        // 商品を作成
         await createProduct(urlData.publicUrl);
         router.push("/");
       }
@@ -63,18 +63,27 @@ const Page = () => {
 
   const createProduct = async (imageUrl: string) => {
     try {
-      // skillsをカンマ区切りの文字列から配列に変換
       const skillsArray = skills
         .split(",")
         .map((skill) => skill.trim())
         .filter((skill) => skill.length > 0);
 
-      // バリデーション: スキルが少なくとも1つ以上存在するか
       if (skillsArray.length === 0) {
         alert("少なくとも1つのスキルを入力してください");
         return;
       }
 
+      const developerArray = developer
+        .split(",")
+        .map((developer) => developer.trim())
+        .filter((developer) => developer.length > 0);
+
+      if (developerArray.length === 0) {
+        alert("少なくとも1つの開発者を入力してください");
+        return;
+      }
+
+      // TODO: mutation関数を使う
       const response = await fetch("/api/product", {
         method: "POST",
         headers: {
@@ -85,9 +94,10 @@ const Page = () => {
           subtitle,
           description,
           department,
-          developer,
+          developer: developerArray,
+          skills: skillsArray,
+          developType,
           image: imageUrl,
-          skills: skillsArray, // skillsを配列として送信
         }),
       });
 
@@ -126,13 +136,7 @@ const Page = () => {
       />
       <input
         type="text"
-        placeholder="部門"
-        value={department}
-        onChange={(e) => setDepartment(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="開発者"
+        placeholder="開発者（カンマ区切り）"
         value={developer}
         onChange={(e) => setDeveloper(e.target.value)}
       />
@@ -142,6 +146,15 @@ const Page = () => {
         value={skills}
         onChange={(e) => setSkills(e.target.value)}
       />
+
+      <select
+        value={developType}
+        onChange={(e) => setDevelopType(e.target.value as DevelopType)}
+      >
+        <option value="individual">個人開発</option>
+        <option value="team">チーム開発</option>
+      </select>
+
       <input type="file" onChange={handleFileChange} />
       <button onClick={handleUpload} disabled={uploading}>
         {uploading ? "アップロード中..." : "アップロード"}

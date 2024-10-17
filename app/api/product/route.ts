@@ -8,8 +8,9 @@ export async function POST(req: NextRequest) {
       subtitle,
       description,
       skills,
-      department,
       developer,
+      developType,
+      productURL,
       image,
     } = await req.json();
 
@@ -19,8 +20,9 @@ export async function POST(req: NextRequest) {
         subtitle,
         description,
         skills,
-        department,
         developer,
+        developType,
+        productURL,
         image,
       },
     });
