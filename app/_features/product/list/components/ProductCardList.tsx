@@ -36,9 +36,9 @@ const ProductCardList: React.FC<TProps> = ({ productList }) => {
                 image={product.image}
                 title={product.title}
                 subtitle={product.subtitle}
-                department={product.department}
                 developer={product.developer}
                 skills={product.skills}
+                developType={product.developType}
               />
             </Grid.Column>
           ))}

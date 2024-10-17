@@ -3,7 +3,7 @@ import Link from "next/link";
 import { createUseStyles } from "react-jss";
 import { Product } from "../../detail/endpoint";
 
-type TProps = Omit<Product, "description">;
+type TProps = Omit<Product, "description" | "productURL">;
 
 const useStyles = createUseStyles({
   card: {
@@ -40,8 +40,8 @@ const ProductCard: React.FC<TProps> = ({
   image,
   title,
   subtitle,
-  department,
   developer,
+  developType,
   skills,
 }) => {
   const classes = useStyles();
@@ -65,10 +65,10 @@ const ProductCard: React.FC<TProps> = ({
           </Link>
         </h3>
         <p className={classes.subtitle}>{subtitle}</p>
+        <p>{developer}</p>
         <p>
-          {department} {developer}
+          {skills.join(", ")} {developType}
         </p>
-        <p>{skills.join(", ")}</p>
       </div>
     </article>
   );
