@@ -1,13 +1,16 @@
 import axios from "axios";
 
+export type DevelopType = "individual" | "team";
+
 export type Product = {
   productCUID: string;
   title: string;
   subtitle: string;
   description: string;
   skills: string[];
-  department: string;
-  developer: string;
+  developer: string[];
+  developType: DevelopType;
+  productURL?: String;
   image: string;
 };
 
