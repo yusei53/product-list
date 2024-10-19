@@ -67,7 +67,13 @@ const ProductDetailItems: FC<TProps> = ({
         {productURL && (
           <>
             <h4>URL</h4>
-            <Link href={`${productURL}`}>{productURL}</Link>
+            <Link
+              href={`${productURL}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {productURL}
+            </Link>
           </>
         )}
       </div>
