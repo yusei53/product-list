@@ -8,11 +8,13 @@ type TProps = Omit<Product, "productCUID">;
 
 const useStyles = createUseStyles({
   content: {
+    wordWrap: "break-word",
+    // ProductDetailのcssにmarginBottomを当てても効かないのでここで当てる
+    marginBottom: "64px",
     maxWidth: "580px",
     "@media (max-width: 600px)": {
       maxWidth: "320px",
     },
-    wordWrap: "break-word",
   },
   image: {
     borderRadius: "10px",
