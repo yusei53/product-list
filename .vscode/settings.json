@@ -1,4 +1,4 @@
 {
-  // Swiperのスペルチェックを無視する
+  // 以下のrのスペルチェックを無視する
   "cSpell.words": ["Swiper", "supabase"]
 }
