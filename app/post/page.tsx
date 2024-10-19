@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 // TODO: めんどいけどここリファクタする
-// TODO: URLのinputを追加する
+// TODO: UseStateからReact Hook Formに変更する
 const Page = () => {
   const [file, setFile] = useState<File | null>(null);
   const [uploading, setUploading] = useState(false);
@@ -13,9 +13,9 @@ const Page = () => {
   const [title, setTitle] = useState("");
   const [subtitle, setSubtitle] = useState("");
   const [description, setDescription] = useState("");
-  const [department, setDepartment] = useState("");
   const [developer, setDeveloper] = useState("");
   const [skills, setSkills] = useState("");
+  const [productURL, setProductURL] = useState("");
   const [developType, setDevelopType] = useState<DevelopType>("individual");
 
   const router = useRouter();
@@ -93,10 +93,10 @@ const Page = () => {
           title,
           subtitle,
           description,
-          department,
           developer: developerArray,
           skills: skillsArray,
           developType,
+          productURL,
           image: imageUrl,
         }),
       });
@@ -154,6 +154,12 @@ const Page = () => {
         <option value="individual">個人開発</option>
         <option value="team">チーム開発</option>
       </select>
+      <input
+        type="text"
+        placeholder="プロダクトのURL(こいつはnullable)"
+        value={productURL}
+        onChange={(e) => setProductURL(e.target.value)}
+      />
 
       <input type="file" onChange={handleFileChange} />
       <button onClick={handleUpload} disabled={uploading}>
