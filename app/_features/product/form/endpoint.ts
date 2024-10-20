@@ -1,8 +1,8 @@
 import { supabase } from "app/_lib/supabase";
 import { Product } from "../detail/endpoint";
+import axios from "axios";
 
 export const postImage = async (file: File, fileName: string) => {
-  // const uniqueFileName = `${Date.now()}_${file.name}`;
   const { error } = await supabase.storage
     .from("product-image-buckets")
     .upload(`thumbnail/${fileName}`, file);
@@ -19,12 +19,10 @@ export const getImageUrl = async (fileName: string) => {
 export type PostProductRequest = Omit<Product, "productCUID">;
 
 export const postProduct = async (body: PostProductRequest) => {
-  const response = await fetch("/api/product", {
+  const response = await axios.request({
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(body),
+    url: "/api/product",
+    data: body,
   })
-  return response.ok;
+  return response.status === 201;
 }
