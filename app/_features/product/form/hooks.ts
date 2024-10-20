@@ -4,6 +4,7 @@ import z from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { DevelopType } from "../detail/endpoint";
+import { useRouter } from "next/navigation";
 
 export const createProductSchema = z.object({
     title: z.string()
@@ -30,6 +31,7 @@ export type CreateProductSchemaType = z.infer<typeof createProductSchema>;
 
 export const useCreateProduct = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
   
   const {
     handleSubmit,
@@ -82,13 +84,17 @@ export const useCreateProduct = () => {
         productURL: data.productURL,
         image: imageUrl,
       })
-
+      
       if (!ok) {
-        throw new Error("Failed to create product");
+          throw new Error("Failed to create product");
       }
+
+      router.push("/");
     } catch (e: any) {
       console.error("Failed to upload:", e.message);
       alert(`Failed to upload: ${e.message}`);
+    } finally {
+      setIsLoading(false);
     }
   }
 
