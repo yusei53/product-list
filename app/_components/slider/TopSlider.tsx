@@ -17,13 +17,16 @@ const useStyles = createUseStyles({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    height: "500px",
   },
   image: {
     width: "70%",
     height: "auto",
-    "@media (max-width: 600px)": {
-      width: "90%",
-    },
+    objectFit: "cover",
+    // margin: "0 16px",
+    // "@media (max-width: 600px)": {
+    //   width: "90%",
+    // },
   },
 });
 
@@ -38,10 +41,7 @@ const TopSlider = () => {
             <Image
               src={sliderImage.image}
               alt={`スライダー画像`}
-              // styleで当ててるせいか、widthとheightの大きさが画質に影響を与える
-              height="1000"
-              width="1000"
-              // https://github.com/vercel/next.js/discussions/48255
+              layout="fill"
               priority
               className={classes.image}
             />
