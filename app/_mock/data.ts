@@ -29,7 +29,7 @@ export const sliderImages = [
   },
   {
     id: 8,
-    image: "/image8jpg",
+    image: "/image8.jpg",
   },
   {
     id: 9,
