@@ -1,23 +1,39 @@
 export const sliderImages = [
   {
     id: 1,
-    image: "/test.jpg",
+    image: "/image1.jpg",
   },
   {
     id: 2,
-    image: "/test.jpg",
+    image: "/image2.jpg",
   },
   {
     id: 3,
-    image: "/test.jpg",
+    image: "/image3.jpg",
   },
   {
     id: 4,
-    image: "/test.jpg",
+    image: "/image4.jpg",
   },
   {
     id: 5,
-    image: "/test.jpg",
+    image: "/image5.jpg",
+  },
+  {
+    id: 6,
+    image: "/image6.jpg",
+  },
+  {
+    id: 7,
+    image: "/image7.jpg",
+  },
+  {
+    id: 8,
+    image: "/image8jpg",
+  },
+  {
+    id: 9,
+    image: "/image9.jpg",
   },
 ];
 
@@ -32,7 +48,7 @@ export const sliderImages = [
 //     skills: ["JavaScript", "TypeScript"],
 //     department: "経済学部",
 //     developer: "経済学部現代経済学科4年 今村悠聖",
-//     image: "/test.jpg",
+//     image: "/image.jpg",
 //   },
 //   {
 //     productCUID: "2",
@@ -43,7 +59,7 @@ export const sliderImages = [
 //     skills: ["Python", "Go"],
 //     department: "情報学部",
 //     developer: "情報学部情報科学科3年 田中太郎",
-//     image: "/test.jpg",
+//     image: "/image.jpg",
 //   },
 //   {
 //     productCUID: "3",
@@ -54,7 +70,7 @@ export const sliderImages = [
 //     skills: ["Java", "Kotlin"],
 //     department: "教育学部",
 //     developer: "教育学部教育学科2年 佐藤花子",
-//     image: "/test.jpg",
+//     image: "/image.jpg",
 //   },
 //   {
 //     productCUID: "4",
@@ -65,7 +81,7 @@ export const sliderImages = [
 //     skills: ["C#", "C++"],
 //     department: "体育学部",
 //     developer: "体育学部スポーツ科学科4年 山田健一",
-//     image: "/test.jpg",
+//     image: "/image.jpg",
 //   },
 //   {
 //     productCUID: "5",
@@ -76,6 +92,6 @@ export const sliderImages = [
 //     skills: ["PHP", "Ruby"],
 //     department: "商学部",
 //     developer: "商学部商学科3年 鈴木一郎",
-//     image: "/test.jpg",
+//     image: "/image.jpg",
 //   },
 // ];
