@@ -5,7 +5,7 @@ export const sliderImages = [
   },
   {
     id: 2,
-    image: "/image2.jpg",
+    image: "/image2.png",
   },
   {
     id: 3,
@@ -13,7 +13,7 @@ export const sliderImages = [
   },
   {
     id: 4,
-    image: "/image4.jpg",
+    image: "/image4.png",
   },
   {
     id: 5,
