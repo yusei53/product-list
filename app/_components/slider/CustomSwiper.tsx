@@ -25,9 +25,9 @@ const CustomSwiper: React.FC<TProps> = ({ children }) => {
         0: {
           slidesPerView: 1.2,
         },
-        600: {
+        900: {
           slidesPerView: 1.5,
-          spaceBetween: -150,
+          spaceBetween: -180,
         },
       }}
     >
