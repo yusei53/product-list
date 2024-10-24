@@ -89,7 +89,7 @@ const Page = () => {
             id="skills"
             type="text"
             placeholder="スキル（カンマ区切り）"
-            value={value}
+            value={value || ""}
             onChange={onChange}
           />
         )}
@@ -129,7 +129,7 @@ const Page = () => {
       <Controller
         control={control}
         name="file"
-        render={({ field: { onChange, value } }) => (
+        render={({ field: { onChange } }) => (
           <input
             id="file"
             type="file"

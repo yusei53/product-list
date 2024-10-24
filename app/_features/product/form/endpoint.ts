@@ -19,7 +19,7 @@ export const getImageUrl = async (fileName: string) => {
 export type PostProductRequest = Omit<Product, "productCUID">;
 
 export const postProduct = async (body: PostProductRequest) => {
-  const response = await axios.request({
+  const response = await axios.request<Product>({
     method: "POST",
     url: "/api/product",
     data: body,

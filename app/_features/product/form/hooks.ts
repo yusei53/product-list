@@ -22,9 +22,9 @@ export const createProductSchema = z.object({
       .min(1, { message: "開発タイプを選択してください。" }),
     productURL: z.string()
       .min(0),
-    file: z.custom<FileList>() // 他にも細かく設定できそう ref: https://zenn.dev/kaz_z/articles/zod-image-file
-      .refine((files) => files.length !== 0, { message: "ファイルを選択してください。" })
-      .transform((files) => files[0]),
+    file: z.custom<FileList | undefined>() // 他にも細かく設定できそう ref: https://zenn.dev/kaz_z/articles/zod-image-file
+      .refine((files) => files !== undefined && files.length !== 0, { message: "ファイルを選択してください。" })
+      .transform((files) => files?.[0]),
 })
 
 export type CreateProductSchemaType = z.infer<typeof createProductSchema>;
@@ -54,7 +54,10 @@ export const useCreateProduct = () => {
   const upload = async (data: CreateProductSchemaType) => {
     try {
       setIsLoading(true);
-      
+      if (!data.file) {
+        throw new Error("File is undefined");
+      }
+
       const uniqueFileName = `${Date.now()}_${data.file.name}`;
 
       const error = await postImage(data.file, uniqueFileName);
