@@ -1,5 +1,5 @@
 "use client";
-import Loading from "@components/shared/Loading";
+import Loading from "app/loading";
 import ProductDetail from "app/_features/product/detail/components/ProductDetail";
 import { useProduct } from "app/_features/product/detail/hooks";
 import { useDetailStyles } from "app/_theme";
