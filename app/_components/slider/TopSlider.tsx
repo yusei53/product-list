@@ -2,12 +2,7 @@ import { SwiperSlide } from "swiper/react";
 import Image from "next/image";
 import { createUseStyles } from "react-jss";
 import CustomSwiper from "./CustomSwiper";
-import { Product } from "app/_features/product/detail/endpoint";
 import { sliderImages } from "app/_mock/data";
-
-type TProps = {
-  products: Product[];
-};
 
 const useStyles = createUseStyles({
   container: {
@@ -17,12 +12,18 @@ const useStyles = createUseStyles({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    width: "100%",
   },
   image: {
-    width: "70%",
-    height: "auto",
+    objectFit: "cover",
+    borderRadius: "4px",
+    "@media (max-width: 1200px)": {
+      width: 450,
+      height: 260,
+    },
     "@media (max-width: 600px)": {
-      width: "90%",
+      width: 280,
+      height: 180,
     },
   },
 });
@@ -39,10 +40,9 @@ const TopSlider = () => {
               src={sliderImage.image}
               alt={`スライダー画像`}
               // styleで当ててるせいか、widthとheightの大きさが画質に影響を与える
-              height="1000"
-              width="1000"
+              width={600}
+              height={360}
               // https://github.com/vercel/next.js/discussions/48255
-              priority
               className={classes.image}
             />
           </SwiperSlide>

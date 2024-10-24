@@ -1,4 +1,5 @@
 "use client";
+import Loading from "app/loading";
 import ProductDetail from "app/_features/product/detail/components/ProductDetail";
 import { useProduct } from "app/_features/product/detail/hooks";
 import { useDetailStyles } from "app/_theme";
@@ -10,7 +11,7 @@ const ProductDetailPage = () => {
 
   const { data: product, isLoading } = useProduct(productCUID);
   if (!product) return null;
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <Loading />;
 
   return (
     <ProductDetail
