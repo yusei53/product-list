@@ -33,6 +33,15 @@ const useStyles = createUseStyles({
     marginTop: "2px",
     marginBottom: "4px",
   },
+  developtype: {
+    display: "inline-block",
+    paddingBlock: "5px",
+    paddingInline: "12px",
+    border: "1px solid",
+    borderRadius: "30px",
+    backgroundColor: "white",
+    opacity: "0.7",
+  },
 });
 
 const ProductCard: React.FC<TProps> = ({
@@ -66,7 +75,7 @@ const ProductCard: React.FC<TProps> = ({
         </h3>
         <p className={classes.subtitle}>{subtitle}</p>
         <p>{developer}</p>
-        <p>
+        <p className={classes.developtype}>
           {skills.join(", ")} {developType}
         </p>
       </div>
