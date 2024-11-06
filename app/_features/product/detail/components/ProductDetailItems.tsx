@@ -3,6 +3,7 @@ import { DevelopType, Product } from "../endpoint";
 import { FC } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import Chips from "@components/chips/Chips";
 
 type TProps = Omit<Product, "productCUID">;
 
@@ -61,7 +62,7 @@ const ProductDetailItems: FC<TProps> = ({
         <h4>概要</h4>
         <p>{description}</p>
         <h4>技術スタック</h4>
-        <p>{skills}</p>
+        <Chips developType={developType} skills={skills} />
         <h4>開発者</h4>
         <p>{developer}</p>
         {productURL && (
