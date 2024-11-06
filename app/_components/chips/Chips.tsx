@@ -14,6 +14,12 @@ const useStyles = createUseStyles({
     },
   },
 
+  developtypeContainer: {
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "8px",
+  },
+
   developtype: {
     display: "inline-block",
     paddingBlock: "5px",
@@ -37,16 +43,18 @@ const Chips: React.FC<TProps> = ({ developType = "", skills = [""] }) => {
 
   return (
     <article className={classes.card}>
-      {developTypes.map((type, index) => (
-        <span key={`developType-${index}`} className={classes.developtype}>
-          {type}
-        </span>
-      ))}
-      {skillList.map((skill, index) => (
-        <span key={`skill-${index}`} className={classes.developtype}>
-          {skill}
-        </span>
-      ))}
+      <div className={classes.developtypeContainer}>
+        {developTypes.map((type, index) => (
+          <span key={`developType-${index}`} className={classes.developtype}>
+            {type}
+          </span>
+        ))}
+        {skillList.map((skill, index) => (
+          <span key={`skill-${index}`} className={classes.developtype}>
+            {skill}
+          </span>
+        ))}
+      </div>
     </article>
   );
 };
