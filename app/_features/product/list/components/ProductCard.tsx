@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { createUseStyles } from "react-jss";
 import { Product } from "../../detail/endpoint";
+import Chips from "@components/chips/Chips";
 
 type TProps = Omit<Product, "description" | "productURL">;
 
@@ -32,15 +33,6 @@ const useStyles = createUseStyles({
   subtitle: {
     marginTop: "2px",
     marginBottom: "4px",
-  },
-  developtype: {
-    display: "inline-block",
-    paddingBlock: "5px",
-    paddingInline: "12px",
-    border: "1px solid",
-    borderRadius: "30px",
-    backgroundColor: "white",
-    opacity: "0.7",
   },
 });
 
@@ -75,9 +67,7 @@ const ProductCard: React.FC<TProps> = ({
         </h3>
         <p className={classes.subtitle}>{subtitle}</p>
         <p>{developer}</p>
-        <p className={classes.developtype}>
-          {skills.join(", ")} {developType}
-        </p>
+        <Chips developType={developType} skills={skills} />
       </div>
     </article>
   );
