@@ -7,32 +7,37 @@ import { DevelopType } from "../detail/endpoint";
 import { useRouter } from "next/navigation";
 
 export const createProductSchema = z.object({
-    title: z.string()
-      .min(1, { message: "タイトルを入力してください。" }),
-    subtitle: z.string(),
-    description: z.string()
-      .min(1, { message: "説明を入力してください。" }),
-    developer: z.string()
-      .min(1, { message: "開発者を入力してください。" })
-      .refine((developers) => developers.split(",").length > 0, { message: "少なくとも一人の開発者を入力してください。" }),
-    skills: z.string()
-      .min(1, { message: "スキルを入力してください。" })
-      .refine((skills) => skills.split(",").length > 0, { message: "少なくとも一つのスキルを入力してください。" }),
-    developType: z.string()
-      .min(1, { message: "開発タイプを選択してください。" }),
-    productURL: z.string()
-      .min(0),
-    file: z.custom<FileList | undefined>() // 他にも細かく設定できそう ref: https://zenn.dev/kaz_z/articles/zod-image-file
-      .refine((files) => files !== undefined && files.length !== 0, { message: "ファイルを選択してください。" })
-      .transform((files) => files?.[0]),
-})
+  title: z.string().min(1, { message: "タイトルを入力してください。" }),
+  subtitle: z.string().min(1, { message: "サブタイトルを入力してください。" }),
+  description: z.string().min(1, { message: "説明を入力してください。" }),
+  developer: z
+    .string()
+    .min(1, { message: "開発者を入力してください。" })
+    .refine((developers) => developers.split(",").length > 0, {
+      message: "少なくとも一人の開発者を入力してください。",
+    }),
+  skills: z
+    .string()
+    .min(1, { message: "スキルを入力してください。" })
+    .refine((skills) => skills.split(",").length > 0, {
+      message: "少なくとも一つのスキルを入力してください。",
+    }),
+  developType: z.string().min(1, { message: "開発タイプを選択してください。" }),
+  productURL: z.string().min(0),
+  file: z
+    .custom<FileList | undefined>() // 他にも細かく設定できそう ref: https://zenn.dev/kaz_z/articles/zod-image-file
+    .refine((files) => files !== undefined && files.length !== 0, {
+      message: "ファイルを選択してください。",
+    })
+    .transform((files) => files?.[0]),
+});
 
 export type CreateProductSchemaType = z.infer<typeof createProductSchema>;
 
 export const useCreateProduct = () => {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
-  
+
   const {
     handleSubmit,
     formState: { errors },
@@ -40,16 +45,16 @@ export const useCreateProduct = () => {
   } = useForm<CreateProductSchemaType>({
     resolver: zodResolver(createProductSchema),
     defaultValues: {
-        title: "",
-        subtitle: "",
-        description: "",
-        developer: "",
-        skills: "",
-        developType: "individual",
-        productURL: "",
-        file: undefined,
+      title: "",
+      subtitle: "",
+      description: "",
+      developer: "",
+      skills: "",
+      developType: "individual",
+      productURL: "",
+      file: undefined,
     },
-  })
+  });
 
   const upload = async (data: CreateProductSchemaType) => {
     try {
@@ -72,7 +77,7 @@ export const useCreateProduct = () => {
         .map((skill) => skill.trim())
         .filter((skill) => skill.length > 0);
 
-        const developerArray = data.developer
+      const developerArray = data.developer
         .split(",")
         .map((developer) => developer.trim())
         .filter((developer) => developer.length > 0);
@@ -86,10 +91,10 @@ export const useCreateProduct = () => {
         developType: data.developType as DevelopType,
         productURL: data.productURL,
         image: imageUrl,
-      })
-      
+      });
+
       if (!ok) {
-          throw new Error("Failed to create product");
+        throw new Error("Failed to create product");
       }
 
       router.push("/");
@@ -99,7 +104,7 @@ export const useCreateProduct = () => {
     } finally {
       setIsLoading(false);
     }
-  }
+  };
 
   return {
     isLoading,
@@ -107,5 +112,5 @@ export const useCreateProduct = () => {
     errors,
     control,
     upload,
-  }
-}
+  };
+};
