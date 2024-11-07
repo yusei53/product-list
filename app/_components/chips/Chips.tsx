@@ -2,7 +2,7 @@ import { createUseStyles } from "react-jss";
 import { Product } from "@prisma/client";
 
 type TProps = {
-  developType: Product["developType"];
+  developType: string;
   skills: Product["skills"];
 };
 
@@ -34,13 +34,14 @@ const useStyles = createUseStyles({
   },
 });
 
-const Chips: React.FC<TProps> = ({ skills = [""] }) => {
+const Chips: React.FC<TProps> = ({ developType, skills = [""] }) => {
   const classes = useStyles();
 
   const skill = [...skills];
 
   return (
     <div className={classes.developTypeContainer}>
+      <div className={classes.developType}>{developType}</div>
       {skill.map((skill, index) => (
         <span key={index} className={classes.skill}>
           {skill}
