@@ -2,7 +2,7 @@ import { createUseStyles } from "react-jss";
 import { Product } from "@prisma/client";
 
 type TProps = {
-  developType: string;
+  developType: Product["developType"];
   skills: Product["skills"];
 };
 
