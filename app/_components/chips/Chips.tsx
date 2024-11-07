@@ -34,7 +34,7 @@ const useStyles = createUseStyles({
   },
 });
 
-const Chips: React.FC<TProps> = ({ developType, skills = [""] }) => {
+const Chips: React.FC<TProps> = ({ developType, skills }) => {
   const classes = useStyles();
 
   const skill = [...skills];
