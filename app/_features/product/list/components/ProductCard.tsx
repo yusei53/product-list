@@ -67,7 +67,8 @@ const ProductCard: React.FC<TProps> = ({
         </h3>
         <p className={classes.subtitle}>{subtitle}</p>
         <p>{developer}</p>
-        <Chips developType={developType} skills={skills} />
+        <Chips text={developType} />
+        <Chips text={skills} />
       </div>
     </article>
   );
