@@ -62,7 +62,8 @@ const ProductDetailItems: FC<TProps> = ({
         <h4>概要</h4>
         <p>{description}</p>
         <h4>技術スタック</h4>
-        <Chips developType={developType} skills={skills} />
+        <Chips text={developType} />
+        <Chips text={skills} />
         <h4>開発者</h4>
         <p>{developer}</p>
         {productURL && (
