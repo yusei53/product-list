@@ -1,51 +1,38 @@
 import { createUseStyles } from "react-jss";
-import { Product } from "@prisma/client";
 
 type TProps = {
-  developType: Product["developType"];
-  skills: Product["skills"];
+  text: string | string[];
 };
 
 const useStyles = createUseStyles({
-  developTypeContainer: {
-    display: "flex",
-    flexWrap: "wrap",
-    gap: "8px",
+  Container: {
+    display: "inline-flex",
+    flexDirection: "row",
   },
-  developType: {
+  text: {
     display: "inline-block",
     paddingBlock: "5px",
     paddingInline: "12px",
     border: "1px solid",
     borderRadius: "30px",
-    borderColor: "gray",
-    backgroundColor: "white",
-    opacity: "0.7",
-  },
-  skill: {
-    display: "inline-block",
-    paddingBlock: "5px",
-    paddingInline: "12px",
-    border: "1px solid",
-    borderRadius: "30px",
+    marginRight: "8px",
     borderColor: "gray",
     backgroundColor: "white",
     opacity: "0.7",
   },
 });
 
-const Chips: React.FC<TProps> = ({ developType, skills }) => {
+const Chips: React.FC<TProps> = ({ text }) => {
   const classes = useStyles();
-
-  const skill = [...skills];
-
+  const texts = String(text)
+    .split(",")
+    .map((type) => type.trim());
   return (
-    <div className={classes.developTypeContainer}>
-      <div className={classes.developType}>{developType}</div>
-      {skill.map((skill, index) => (
-        <span key={index} className={classes.skill}>
-          {skill}
-        </span>
+    <div className={classes.Container}>
+      {texts.map((type, index) => (
+        <div key={index} className={classes.text}>
+          {type}
+        </div>
       ))}
     </div>
   );
