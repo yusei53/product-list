@@ -1,14 +1,11 @@
 import { createUseStyles } from "react-jss";
 
 type TProps = {
-  text: string | string[];
+  label: string;
+  isDevelopType?: boolean;
 };
 
 const useStyles = createUseStyles({
-  Container: {
-    display: "inline-flex",
-    flexDirection: "row",
-  },
   text: {
     display: "inline-block",
     paddingBlock: "5px",
@@ -20,20 +17,19 @@ const useStyles = createUseStyles({
     backgroundColor: "white",
     opacity: "0.7",
   },
+  developType: {
+    backgroundColor: "red",
+  },
 });
 
-const Chips: React.FC<TProps> = ({ text }) => {
+const Chips: React.FC<TProps> = ({ label, isDevelopType }) => {
   const classes = useStyles();
-  const texts = String(text)
-    .split(",")
-    .map((type) => type.trim());
+
   return (
-    <div className={classes.Container}>
-      {texts.map((type, index) => (
-        <div key={index} className={classes.text}>
-          {type}
-        </div>
-      ))}
+    <div
+      className={`${classes.text} ${isDevelopType ? classes.developType : ""}`}
+    >
+      {label}
     </div>
   );
 };

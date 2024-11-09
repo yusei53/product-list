@@ -38,7 +38,8 @@ const ProductDetailItems: FC<TProps> = ({
 }) => {
   const classes = useStyles();
 
-  const renderDevelopType = (developType: DevelopType): string => {
+  // TODO: この関数は共通化しておきたい
+  const parseDevelopType = (developType: DevelopType): string => {
     if (developType === "individual") {
       return "個人開発";
     } else {
@@ -57,13 +58,14 @@ const ProductDetailItems: FC<TProps> = ({
       />
       <div className={classes.content}>
         <h3>{title}</h3>
-        <span>{renderDevelopType(developType)}</span>
+        <Chips label={parseDevelopType(developType)} isDevelopType />
         <h4>{subtitle}</h4>
         <h4>概要</h4>
         <p>{description}</p>
         <h4>技術スタック</h4>
-        <Chips text={developType} />
-        <Chips text={skills} />
+        {skills.map((skill) => (
+          <Chips key={skill} label={skill} />
+        ))}
         <h4>開発者</h4>
         <p>{developer}</p>
         {productURL && (

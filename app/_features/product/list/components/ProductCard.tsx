@@ -47,6 +47,12 @@ const ProductCard: React.FC<TProps> = ({
 }) => {
   const classes = useStyles();
 
+  const parseDevelopType = (developType: string) => {
+    if (developType === "individual") {
+      return "個人開発";
+    } else return "チーム開発";
+  };
+
   return (
     <article className={classes.card}>
       <Link href={`/product/${productCUID}`}>
@@ -67,8 +73,10 @@ const ProductCard: React.FC<TProps> = ({
         </h3>
         <p className={classes.subtitle}>{subtitle}</p>
         <p>{developer}</p>
-        <Chips text={developType} />
-        <Chips text={skills} />
+        <Chips label={parseDevelopType(developType)} isDevelopType />
+        {skills.map((skill) => (
+          <Chips key={skill} label={skill} />
+        ))}
       </div>
     </article>
   );
