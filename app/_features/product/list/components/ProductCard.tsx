@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { createUseStyles } from "react-jss";
 import { Product } from "../../detail/endpoint";
+import Chips from "@components/chips/Chips";
 
 type TProps = Omit<Product, "description" | "productURL">;
 
@@ -46,6 +47,12 @@ const ProductCard: React.FC<TProps> = ({
 }) => {
   const classes = useStyles();
 
+  const parseDevelopType = (developType: string) => {
+    if (developType === "individual") {
+      return "個人開発";
+    } else return "チーム開発";
+  };
+
   return (
     <article className={classes.card}>
       <Link href={`/product/${productCUID}`}>
@@ -66,9 +73,10 @@ const ProductCard: React.FC<TProps> = ({
         </h3>
         <p className={classes.subtitle}>{subtitle}</p>
         <p>{developer}</p>
-        <p>
-          {skills.join(", ")} {developType}
-        </p>
+        <Chips label={parseDevelopType(developType)} isDevelopType />
+        {skills.map((skill) => (
+          <Chips key={skill} label={skill} />
+        ))}
       </div>
     </article>
   );
