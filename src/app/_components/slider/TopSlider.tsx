@@ -2,7 +2,7 @@ import { SwiperSlide } from "swiper/react";
 import Image from "next/image";
 import { createUseStyles } from "react-jss";
 import CustomSwiper from "./CustomSwiper";
-import { sliderImages } from "app/_mock/data";
+import { sliderImages } from "src/app/_mock/data";
 
 const useStyles = createUseStyles({
   container: {

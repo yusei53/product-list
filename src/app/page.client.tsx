@@ -1,9 +1,9 @@
 "use client";
-import { useClient } from "app/_utils";
+import { useClient } from "src/app/_utils";
 import { useRouteStyles } from "./_theme";
 import ProductCardList from "./_features/product/list/components/ProductCardList";
 import { useProductList } from "./_features/product/list/hooks";
-import TopSlider from "@components/slider/TopSlider";
+import TopSlider from "src/app/_components/slider/TopSlider";
 
 const TopPage = () => {
   useRouteStyles();

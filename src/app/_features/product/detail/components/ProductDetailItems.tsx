@@ -3,7 +3,7 @@ import { DevelopType, Product } from "../endpoint";
 import { FC } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Chips from "@components/chips/Chips";
+import Chips from "src/app/_components/chips/Chips";
 
 type TProps = Omit<Product, "productCUID">;
 

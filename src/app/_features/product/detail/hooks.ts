@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { getProduct } from "./endpoint";
-import { productsKeys } from "app/_utils";
+import { productsKeys } from "src/app/_utils";
 
 export const useProduct = (productCUID: string) => {
   const { data, isLoading } = useQuery({

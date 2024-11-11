@@ -1,8 +1,8 @@
 "use client";
-import Loading from "app/loading";
-import ProductDetail from "app/_features/product/detail/components/ProductDetail";
-import { useProduct } from "app/_features/product/detail/hooks";
-import { useDetailStyles } from "app/_theme";
+import Loading from "src/app/loading";
+import ProductDetail from "src/app/_features/product/detail/components/ProductDetail";
+import { useProduct } from "src/app/_features/product/detail/hooks";
+import { useDetailStyles } from "src/app/_theme";
 import { useParams } from "next/navigation";
 
 const ProductDetailPage = () => {

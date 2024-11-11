@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { prisma } from "app/_lib/prisma";
+import { prisma } from "src/app/_lib/prisma";
 
 // TODO: productCUIDをIDを除いたカラムたちをGETするようにしたい
 export async function GET(

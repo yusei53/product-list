@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { createUseStyles } from "react-jss";
 import { Product } from "../../detail/endpoint";
-import Chips from "@components/chips/Chips";
+import Chips from "src/app/_components/chips/Chips";
 
 type TProps = Omit<Product, "description" | "productURL">;
 

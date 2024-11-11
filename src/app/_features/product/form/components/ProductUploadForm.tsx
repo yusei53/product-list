@@ -1,5 +1,5 @@
 import React from "react";
-import { useCreateProduct } from "app/_features/product/form/hooks";
+import { useCreateProduct } from "src/app/_features/product/form/hooks";
 import { createUseStyles } from "react-jss";
 import FormInput from "./FormInput";
 import FormSelect from "./FormSelect";
