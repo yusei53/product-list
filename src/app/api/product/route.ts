@@ -1,3 +1,4 @@
+import { revalidateTag } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "src/app/_lib/prisma";
 
@@ -26,6 +27,9 @@ export async function POST(req: NextRequest) {
         image,
       },
     });
+
+    revalidateTag("product-list");
+
     return NextResponse.json(product, { status: 201 });
   } catch (error) {
     console.error(error);

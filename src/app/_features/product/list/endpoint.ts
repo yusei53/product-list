@@ -5,6 +5,8 @@ export type ProductList = {
 };
 
 export const getProductList = async (): Promise<ProductList> => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/product-list`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/product-list`, {
+    next: { tags: ["product-list"] },
+  });
   return await res.json();
 };
