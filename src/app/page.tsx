@@ -2,9 +2,10 @@ import { getProductList } from "./_features/product/list/endpoint";
 import TopPage from "./page.client";
 
 const page = async () => {
-  const productList = await getProductList();
+  // TODO: ほんとはres.productListとか嫌いだけどめんどいから一旦これ
+  const res = await getProductList();
 
-  return <TopPage productList={productList} />;
+  return <TopPage productList={res.productList} />;
 };
 
 export default page;

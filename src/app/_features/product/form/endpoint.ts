@@ -1,6 +1,5 @@
 import { supabase } from "src/app/_lib/supabase";
 import { Product } from "../detail/endpoint";
-import axios from "axios";
 
 export const postImage = async (file: File, fileName: string) => {
   const { error } = await supabase.storage
@@ -19,10 +18,12 @@ export const getImageUrl = async (fileName: string) => {
 export type PostProductRequest = Omit<Product, "productCUID">;
 
 export const postProduct = async (body: PostProductRequest) => {
-  const response = await axios.request<Product>({
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/product`, {
     method: "POST",
-    url: "/api/product",
-    data: body,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body),
   });
-  return response.status === 201;
+  return res.status === 201;
 };
