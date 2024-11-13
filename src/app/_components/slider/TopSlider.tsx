@@ -2,7 +2,6 @@ import { SwiperSlide } from "swiper/react";
 import Image from "next/image";
 import { createUseStyles } from "react-jss";
 import CustomSwiper from "./CustomSwiper";
-import { sliderImages } from "src/app/_mock/data";
 
 const useStyles = createUseStyles({
   container: {
@@ -53,3 +52,42 @@ const TopSlider = () => {
 };
 
 export default TopSlider;
+
+export const sliderImages = [
+  {
+    id: 1,
+    image: "/image1.jpg",
+  },
+  {
+    id: 2,
+    image: "/image2.png",
+  },
+  {
+    id: 3,
+    image: "/image3.jpg",
+  },
+  {
+    id: 4,
+    image: "/image4.png",
+  },
+  {
+    id: 5,
+    image: "/image5.jpg",
+  },
+  {
+    id: 6,
+    image: "/image6.jpg",
+  },
+  {
+    id: 7,
+    image: "/image7.jpg",
+  },
+  {
+    id: 8,
+    image: "/image8.jpg",
+  },
+  {
+    id: 9,
+    image: "/image9.jpg",
+  },
+];

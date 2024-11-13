@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import "semantic-ui-css/semantic.min.css";
-import { ReactQueryProvider } from "./_provider";
 
 const siteName = "ぴーちフォリオ | PeachTechポートフォリオ";
 const description =
@@ -51,9 +50,7 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="u-journal" />
         <link rel="manifest" href="/site.webmanifest" />
       </head>
-      <body style={{ margin: 0, backgroundColor: "pink" }}>
-        <ReactQueryProvider>{children}</ReactQueryProvider>
-      </body>
+      <body style={{ margin: 0, backgroundColor: "pink" }}>{children}</body>
     </html>
   );
 }
