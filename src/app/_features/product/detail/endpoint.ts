@@ -1,5 +1,3 @@
-import axios from "axios";
-
 export type DevelopType = "individual" | "team";
 
 export type Product = {
@@ -14,10 +12,10 @@ export type Product = {
   image: string;
 };
 
-export const getProduct = async (productCUID: string) => {
-  const response = await axios.request<Product>({
-    method: "GET",
-    url: `/api/product/${productCUID}`,
-  });
-  return response.data;
+export const getProduct = async (productCUID: string): Promise<Product> => {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_URL}/api/product/${productCUID}`
+  );
+  const data = await res.json();
+  return data;
 };

@@ -1,17 +1,14 @@
 "use client";
-import Loading from "src/app/loading";
 import ProductDetail from "src/app/_features/product/detail/components/ProductDetail";
-import { useProduct } from "src/app/_features/product/detail/hooks";
 import { useDetailStyles } from "src/app/_theme";
-import { useParams } from "next/navigation";
+import { Product } from "src/app/_features/product/detail/endpoint";
 
-const ProductDetailPage = () => {
+type ProductDetailPageProps = {
+  product: Product;
+};
+
+const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product }) => {
   useDetailStyles();
-  const { productCUID } = useParams<{ productCUID: string }>();
-
-  const { data: product, isLoading } = useProduct(productCUID);
-  if (!product) return null;
-  if (isLoading) return <Loading />;
 
   return (
     <ProductDetail
