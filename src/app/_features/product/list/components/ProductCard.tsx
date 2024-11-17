@@ -72,8 +72,6 @@ const ProductCard: React.FC<TProps> = ({
           </Link>
         </h3>
         <p className={classes.subtitle}>{subtitle}</p>
-        <p>{developer}</p>
-        <Chips label={parseDevelopType(developType)} isDevelopType />
         {skills.map((skill) => (
           <Chips key={skill} label={skill} />
         ))}
