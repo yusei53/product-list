@@ -56,12 +56,12 @@ const ProductDetailItems: FC<TProps> = ({
         alt={`${title}の画像`}
         className={classes.image}
       />
+      <h1>{title}</h1>
       <div className={classes.content}>
-        <h3>{title}</h3>
-        <Chips label={parseDevelopType(developType)} isDevelopType />
         <h4>{subtitle}</h4>
         <h4>概要</h4>
         <p>{description}</p>
+        <Chips label={parseDevelopType(developType)} isDevelopType />
         <h4>技術スタック</h4>
         {skills.map((skill) => (
           <Chips key={skill} label={skill} />
