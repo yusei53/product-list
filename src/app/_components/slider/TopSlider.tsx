@@ -5,7 +5,12 @@ import CustomSwiper from "./CustomSwiper";
 
 const useStyles = createUseStyles({
   container: {
-    marginBlock: "32px",
+    "@media (max-width: 1600px)": {
+      marginBlock: "65px",
+    },
+    "@media (max-width: 600px)": {
+      marginBlock: "40px",
+    },
   },
   imageField: {
     display: "flex",
@@ -15,13 +20,13 @@ const useStyles = createUseStyles({
   },
   image: {
     objectFit: "cover",
-    borderRadius: "4px",
+    borderRadius: "10px",
     "@media (max-width: 1200px)": {
       width: 450,
       height: 260,
     },
     "@media (max-width: 600px)": {
-      width: 280,
+      width: 320,
       height: 180,
     },
   },

@@ -19,15 +19,15 @@ const CustomSwiper: React.FC<TProps> = ({ children }) => {
       pagination={{
         clickable: true,
       }}
-      navigation={true}
+      navigation={false}
       modules={[Autoplay, Pagination, Navigation]}
       breakpoints={{
         0: {
-          slidesPerView: 1.2,
+          slidesPerView: 1.25,
         },
         900: {
           slidesPerView: 1.5,
-          spaceBetween: -180,
+          spaceBetween: -420,
         },
       }}
     >
