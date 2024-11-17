@@ -50,7 +50,7 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="u-journal" />
         <link rel="manifest" href="/site.webmanifest" />
       </head>
-      <body style={{ margin: 0, backgroundColor: "pink" }}>{children}</body>
+      <body style={{ margin: 0, backgroundColor: "white" }}>{children}</body>
     </html>
   );
 }

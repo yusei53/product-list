@@ -13,12 +13,13 @@ const useStyles = createUseStyles({
     border: "1px solid",
     borderRadius: "30px",
     marginRight: "8px",
+    marginBlock: "5px",
     borderColor: "gray",
     backgroundColor: "white",
     opacity: "0.7",
   },
   developType: {
-    backgroundColor: "red",
+    borderRadius: "5px",
   },
 });
 

@@ -6,10 +6,10 @@ export const useGlobalStyles = {
       marginBottom: 0,
     },
     h3: {
-      fontSize: "17px",
+      fontSize: "18px",
     },
     p: {
-      fontSize: "13px",
+      fontSize: "15px",
     },
   },
 };
@@ -26,6 +26,7 @@ export const useDetailStyles = createUseStyles({
       fontSize: "16px",
     },
     p: {
+      fontSize: "15px",
       letterSpacing: 0.6,
       lineHeight: 1.5,
       marginTop: 5,
