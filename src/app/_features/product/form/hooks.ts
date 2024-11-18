@@ -35,12 +35,11 @@ export const createProductSchema = z.object({
 export type CreateProductSchemaType = z.infer<typeof createProductSchema>;
 
 export const useCreateProduct = () => {
-  const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
   const {
     handleSubmit,
-    formState: { errors },
+    formState: { isSubmitting, isSubmitSuccessful, errors },
     control,
   } = useForm<CreateProductSchemaType>({
     resolver: zodResolver(createProductSchema),
@@ -58,13 +57,11 @@ export const useCreateProduct = () => {
 
   const upload = async (data: CreateProductSchemaType) => {
     try {
-      setIsLoading(true);
       if (!data.file) {
         throw new Error("File is undefined");
       }
 
       const uniqueFileName = `${Date.now()}_${data.file.name}`;
-
       const error = await postImage(data.file, uniqueFileName);
       if (error) {
         throw error;
@@ -101,13 +98,12 @@ export const useCreateProduct = () => {
     } catch (e: any) {
       console.error("Failed to upload:", e.message);
       alert(`Failed to upload: ${e.message}`);
-    } finally {
-      setIsLoading(false);
     }
   };
 
   return {
-    isLoading,
+    isSubmitting,
+    isSubmitSuccessful,
     handleSubmit,
     errors,
     control,

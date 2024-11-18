@@ -44,8 +44,14 @@ const useStyles = createUseStyles({
 
 const ProductUploadForm: React.FC = () => {
   const classes = useStyles();
-  const { isLoading, handleSubmit, errors, control, upload } =
-    useCreateProduct();
+  const {
+    isSubmitting,
+    isSubmitSuccessful,
+    handleSubmit,
+    errors,
+    control,
+    upload,
+  } = useCreateProduct();
 
   return (
     <div className={classes.formContainer}>
@@ -107,10 +113,12 @@ const ProductUploadForm: React.FC = () => {
       />
       <button
         onClick={handleSubmit(upload)}
-        disabled={isLoading}
+        disabled={isSubmitting || isSubmitSuccessful}
         className={classes.button}
       >
-        {isLoading ? "アップロード中..." : "アップロード"}
+        {isSubmitting || isSubmitSuccessful
+          ? "アップロード中..."
+          : "アップロード"}
       </button>
     </div>
   );
