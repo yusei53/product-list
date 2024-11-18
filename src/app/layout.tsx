@@ -1,12 +1,12 @@
 import { Metadata } from "next";
 import "semantic-ui-css/semantic.min.css";
 
-const siteName = "ぴーちフォリオ | PeachTechポートフォリオ";
+const siteName = "ぴーちフォリオ | PeachTechポートフォリオ一覧サイト";
 const description =
   "PeachTechのメンバーが作成したポートフォリオサイトです。個人の趣味で作ったものから大会に出したようなプロダクトまで一人一人の個性、想いがつまったプロダクトをお楽しみください！";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://peachtech-product-list.vercel.app/product/"),
+  metadataBase: new URL("https://peachtech-product-list.vercel.app/"),
   title: {
     default: siteName,
     template: "%s | Product list",
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   description: description,
   openGraph: {
     type: "website",
-    url: "https://peachtech-product-list.vercel.app/product/",
+    url: "https://peachtech-product-list.vercel.app/",
     title: siteName,
     description: description,
     siteName: siteName,
