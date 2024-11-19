@@ -22,8 +22,14 @@ const CustomSwiper: React.FC<TProps> = ({ children }) => {
       navigation={false}
       modules={[Autoplay, Pagination, Navigation]}
       breakpoints={{
-        0: {
+        320: {
+          // iPhone SE
           slidesPerView: 1.25,
+          spaceBetween: 30,
+        },
+        390: {
+          // iPhone 12/13/14
+          spaceBetween: 25,
         },
         900: {
           slidesPerView: 1.5,
