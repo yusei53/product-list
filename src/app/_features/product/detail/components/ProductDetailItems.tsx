@@ -67,14 +67,14 @@ const ProductDetailItems: FC<TProps> = ({
           <Chips key={skill} label={skill} />
         ))}
         <h4>開発者</h4>
-        <p>
+        <div>
           {developer.map((name) => (
             <span key={name}>
               {name}
               <br />
             </span>
           ))}
-        </p>
+        </div>
         {productURL && (
           <>
             <h4>URL</h4>
