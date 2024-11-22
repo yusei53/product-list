@@ -73,7 +73,7 @@ export const sliderImages = [
   },
   {
     id: 4,
-    image: "/image4.png",
+    image: "/image4.jpg",
   },
   {
     id: 5,
@@ -94,5 +94,17 @@ export const sliderImages = [
   {
     id: 9,
     image: "/image9.jpg",
+  },
+  {
+    id: 10,
+    image: "/image10.jpeg",
+  },
+  {
+    id: 11,
+    image: "/image11.jpg",
+  },
+  {
+    id: 12,
+    image: "/image12.jpg",
   },
 ];
