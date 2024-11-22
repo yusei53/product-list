@@ -5,9 +5,7 @@ import CustomSwiper from "./CustomSwiper";
 
 const useStyles = createUseStyles({
   container: {
-    "@media (max-width: 1600px)": {
-      marginBlock: "65px",
-    },
+    marginBlock: "65px",
     "@media (max-width: 600px)": {
       marginBlock: "40px",
     },
