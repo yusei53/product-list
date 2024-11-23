@@ -8,6 +8,18 @@ import Chips from "src/app/_components/chips/Chips";
 type TProps = Omit<Product, "productCUID">;
 
 const useStyles = createUseStyles({
+  h1: {
+    marginTop: "10px",
+    fontSize: "24px",
+    wordWrap: "break-word",
+    // ProductDetailのcssにmarginBottomを当てても効かないのでここで当てる
+    marginBottom: "10px",
+    maxWidth: "580px",
+    "@media (max-width: 600px)": {
+      fontSize: "20px",
+      maxWidth: "320px",
+    },
+  },
   content: {
     wordWrap: "break-word",
     // ProductDetailのcssにmarginBottomを当てても効かないのでここで当てる
@@ -56,7 +68,7 @@ const ProductDetailItems: FC<TProps> = ({
         alt={`${title}の画像`}
         className={classes.image}
       />
-      <h1>{title}</h1>
+      <h1 className={classes.h1}>{title}</h1>
       <div className={classes.content}>
         <h4>{subtitle}</h4>
         <h4>概要</h4>
